@@ -16,4 +16,16 @@ var b = process.argv[3];
 //Twitter machine
 //make it so that that my-tweets is [2]
 //need to also think for spotify later on, becasue that is going to use [2] as well
-(a === "my-tweets");
+function tweets() {
+
+    var params = { count: 20};
+
+    client.get("statuses/user_timeline", params, function(error, tweets, response) {
+        if (!error){
+            throw error;
+
+    }
+
+}
+}
+    
