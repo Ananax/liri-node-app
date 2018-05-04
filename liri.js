@@ -51,10 +51,10 @@ switch(a) {
                 return console.log('Error occurred:' + err);
             }
 
-            console.log('Artist: ' + data.tracks.items[0].album.artists[0].name);
+            console.log('Artist: ' + data.tracks.items[0].artists.name);
             console.log('The Song\'s Name: ' + data.tracks.items[0].name);
             console.log('Album: ' + data.tracks.items[0].album.name);
-            console.log('Artist\'s Profile: ' + data.tracks.items[0].album.artists[0].external_urls.spotify);
+            console.log('Artist\'s Profile: ' + data.tracks.items[0].external_urls.spotify);
 
         });
     }
