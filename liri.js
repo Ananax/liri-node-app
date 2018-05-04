@@ -1,10 +1,10 @@
-require("dotenv").config();
+require('dotenv').config();
 
-var keys = require("./keys.js");
+var keys = require('./keys.js');
 var fs = require('fs');
-var request = require("request");
-var Twitter = require("twitter");
-var Spotify = require("node-spotify-api");
+var request = require('request');
+var Twitter = require('twitter');
+var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
@@ -36,4 +36,30 @@ switch(a) {
         };
       });
 
-    };
+    break;
+
+    case 'spotify-this-song':
+
+    function spotifySong (songTitle) {
+        var spotify  = new Spotify({
+            id: process.env.SPOTIFY_ID,
+            secret: process.env.SPOTIFY_SECRET
+        });
+
+        spotify.search({ type: 'track', query: songTitle}, function(err, data) {
+            if (err) {
+                return console.log('Error occurred:' + err);
+            }
+
+            console.log('Artist: ' + data.tracks.items[0].album.artists[0].name);
+            console.log('The Song\'s Name: ' + data.tracks.items[0].name);
+            console.log('Album: ' + data.tracks.items[0].album.name);
+            console.log('Artist\'s Profile: ' + data.tracks.items[0].album.artists[0].external_urls.spotify);
+
+        });
+    }
+    spotifySong(b);
+
+    break;
+
+}
