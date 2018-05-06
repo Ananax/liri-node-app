@@ -77,4 +77,17 @@ switch(a) {
 
     break;
 
+    case 'do-what-it-says':
+
+    fs.readFile('random.txt', 'utf-8', function(error, data) {
+        if (error) { return (error);
+        }
+
+        console.log(data);
+        // need to take the text in random.txt and spit it out with the function I have in spotify-this-song
+        
+    });
+
+    break;
+
 }
