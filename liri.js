@@ -64,6 +64,17 @@ switch(a) {
 
     case 'movie-this':
 
-    request()
+    request('http://www.omdbapi.com/?apikey=trilogy&t=' + b +'  ', function (error, response, body) {
+        console.log('Title: ' + JSON.parse(body).Title);
+        console.log('Release Year: ' + JSON.parse(body).Year);
+        console.log("IMDB's rating: " + JSON.parse(body).imdbRating);
+        console.log("Rotten Tomatoes rating: " + JSON.parse(body).Ratings[1].Value);
+        console.log('Country: ' + JSON.parse(body).Country);
+        console.log('Language: ' + JSON.parse(body).Language);
+        console.log('Plot: ' + JSON.parse(body).Plot);
+        console.log('Actors: ' + JSON.parse(body).Actors);
+    });
+
+    break;
 
 }
